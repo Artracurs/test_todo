@@ -11,7 +11,7 @@ router.get('/', getAllTodos)
 // CREATE A NEW TASK
 router.post('/', createToDo)
 
-// GET TASK BI ID
+// GET TASK BY ID
 router.get('/:id', getTodo, (req, res) => {
     res.json(res.todo)
 })
