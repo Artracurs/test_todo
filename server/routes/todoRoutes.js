@@ -6,12 +6,13 @@ const router = express.Router();
 // GET ALL TASKS
 router.get('/', async (req, res) => {
     try {
-        const todos = await toDo.find();
+        const todos = await toDo.find();    
         res.json(todos)
+        // res.send('response success')
     } catch (err) {
         res.status(500).json({ message: err.message })
     }
-    res.send('response success')
+
 })
 
 // CREATE A NEW TASK
@@ -20,7 +21,14 @@ router.post('/', async (req, res) => {
         title: req.body.title,
         description: req.body.description,
         status: req.body.status
-    })
+    });
+
+    try {
+        const savedToDo = await todo.save();
+        res.status(201).json(savedToDo)
+    } catch (error) {
+        res.status(400).json({ message: error.message })
+    }
 })
 
 module.exports = router;
