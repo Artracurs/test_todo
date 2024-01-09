@@ -1,0 +1,48 @@
+@use '../../variables';
+
+.container {
+    display: flex;
+    grid-template-columns: 10px 1fr 2fr 40px;
+    width: 100vw;
+    justify-content: space-between;
+    align-items: center;
+    color: variables.$tangerine;
+    // padding: 5px 10px;
+    background-color: variables.$tangerine;
+  }
+
+  .navLinks {
+    list-style: none;
+    display: flex;
+    margin: 0 10px 0 0;
+    color: variables.$holo;
+    // background: variables.$tangerine;
+  }
+
+  
+  .navbarBrand {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 130px; 
+    height: 70px;
+    // margin-right: 10px;
+    background: url('https://www.gemsotec.com/wp-content/uploads/2021/06/Logo-GoRound-v3-1.png') no-repeat center center;
+    background-size: cover; 
+  }
+  
+  .navLinks li {
+    margin-left: 15px;
+  }
+  
+  .navLinks a {
+    color: rgb(53, 53, 53);
+    text-decoration: none;
+  }
+  
+  .navLinks a:hover {
+    text-decoration: underline;
+  }
+  

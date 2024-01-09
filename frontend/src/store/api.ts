@@ -32,7 +32,7 @@ const createTodo = async (todo: Omit<Todo, '_id'>): Promise<Todo> => {
 
 // UPDATE TASK BY ID
 const updateTodo = async (id: string, todo: Partial<Todo>): Promise<Todo> => {
-  const response = await fetch(`${API_BASE_URL}/${id}`, {
+  const response = await fetch(`${API_BASE_URL}${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -45,9 +45,10 @@ const updateTodo = async (id: string, todo: Partial<Todo>): Promise<Todo> => {
   return await response.json();
 }
 
+// REMOVE TASK BY ID
 const deleteTodo = async (id: string): Promise<void> => {
   try {
-    const response = await fetch(`${API_BASE_URL}/${id}`, {
+    const response = await fetch(`${API_BASE_URL}${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -56,7 +57,6 @@ const deleteTodo = async (id: string): Promise<void> => {
     if (!response.ok) {
       throw new Error('Error deleting todo');
     }
-    // Optionally, you can return some data here if your API sends back a response
   } catch (error) {
     console.error('Failed to delete todo:', error);
     throw error;
