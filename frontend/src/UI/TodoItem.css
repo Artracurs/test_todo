@@ -1,0 +1,27 @@
+/* TodoItem.css */
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ececec;
+  }
+  
+  .todo-item.completed {
+    text-decoration: line-through;
+    color: #d3d3d3;
+  }
+  
+  .delete-btn {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .delete-btn:hover {
+    background-color: #ff5c5c;
+  }
+  

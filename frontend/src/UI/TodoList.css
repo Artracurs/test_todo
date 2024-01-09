@@ -1,0 +1,110 @@
+/* TodoList.css */
+.todo-list-container {
+
+}
+
+.header {
+  background-color: #f7f7f7;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 5px;
+  left: 20px;
+  right: 20px;
+}
+
+.status-bar-time {
+  font-size: 12px;
+}
+
+.status-bar-icons {
+  display: flex;
+  gap: 5px;
+}
+
+.signal-icon,
+.wifi-icon,
+.battery-icon {
+  width: 20px;
+  height: 10px;
+  background-color: #333;
+}
+
+.title {
+  margin: 0;
+  color: #333;
+  font-size: 24px;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid #ececec;
+}
+
+.todo-text {
+  font-size: 18px;
+}
+
+.toggle {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #ececec;
+  position: relative;
+}
+
+.toggle.checked {
+  background-color: #5cb85c;
+}
+
+.toggle.checked::after {
+  content: '✓';
+  color: #fff;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+.add-btn {
+  background-color: #2d9cdb;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 36px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* Адаптивность для различных устройств */
+@media (max-width: 768px) {
+  .todo-list-container {
+    width: 100%;
+  }
+
+  .status-bar {
+    display: none;
+  }
+}
+
+/* При необходимости добавьте дополнительные медиа-запросы для большей адаптивности */
