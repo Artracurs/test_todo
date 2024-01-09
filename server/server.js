@@ -19,7 +19,7 @@ app.use('/api', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/', toDoRoutes);
 
 const PORT = process.env.SERVER_PORT || 4000;
-const HOST = process.env.SERVER_HOST || '0.0.0.0';
+const HOST = process.env.SERVER_HOST || '192.168.43.216';
 
 mongoose.connect(`${process.env.DB_MONGO_URL}`)
     .then(() => console.log('Connected to MongoDB'))

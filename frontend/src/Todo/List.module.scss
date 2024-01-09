@@ -1,0 +1,49 @@
+.container {
+    width: 95vw;
+    margin: 3px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    text-align: left;
+    background-color: #fff;
+    color: rgb(0, 0, 0);
+    display: grid;
+    grid-template-columns: 40px 1fr;
+}
+
+.title {
+    font-weight: 800;
+}
+
+.description {
+    grid-column: 1 / -1; 
+    font-size: 12px;
+}
+
+
+/* Медиа-запросы */
+@media (max-width: 768px) {
+    .container {
+        width: 85vw; /* Меньше ширина для мобильных устройств */
+        padding: 8px; /* Меньше отступы */
+    }
+
+    .title {
+        font-size: 14px; /* Меньше размер шрифта для названия */
+    }
+
+    .description {
+        font-size: 10px; /* Меньше размер шрифта для описания */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95vw; /* Больше ширина для очень маленьких экранов */
+        grid-template-columns: 1fr; /* Изменение сетки */
+    }
+
+    .title, .description {
+        grid-column: 1; /* Настройка расположения сетки */
+    }
+}

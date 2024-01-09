@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import TodoList from './UI/TodoList'
 import TodoItem from './UI/TodoItem'
+import List from './Todo/List'
 
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
   return (
     <>
       {/* <TodoList /> */}
-      <TodoItem />
+      <List />
+      {/* <TodoItem /> */}
     </>
   )
 }

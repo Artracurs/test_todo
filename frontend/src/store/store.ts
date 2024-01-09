@@ -1,11 +1,12 @@
-import create from 'zustand';
-import { Todo } from './interfaces';
+import { create } from 'zustand';
+// import { Todo } from './interfaces';
 
-// Определение типа для объекта задачи
+// // Определение типа для объекта задачи
 interface Todo {
   _id: string;
   title: string;
   completed: boolean;
+  status?: 'pending' | 'in progress' | 'completed'
 }
 
 // Интерфейс для состояния

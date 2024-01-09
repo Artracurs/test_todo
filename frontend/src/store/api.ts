@@ -1,13 +1,5 @@
-const API_BASE_URL = 'http://localhost:3002/todos/';
+const API_BASE_URL = 'http://192.168.43.216:3002/todos/';
 import { Todo } from './interfaces';
-
-// Определение интерфейса для объекта задачи
-interface Todo {
-  _id: string;
-  title: string;
-  description?: string;
-  status?: 'pending' | 'in progress' | 'completed';
-}
 
 // GET ALL TASKS
 const getAllTodos = async (): Promise<Todo[]> => {
