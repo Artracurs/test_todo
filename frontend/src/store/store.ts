@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 // import { Todo } from './interfaces';
 
-// // Определение типа для объекта задачи
 interface Todo {
   _id: string;
   title: string;
@@ -9,16 +8,15 @@ interface Todo {
   status?: 'pending' | 'in progress' | 'completed'
 }
 
-// Интерфейс для состояния
 interface TodoState {
   todos: Todo[];
   addTodo: (todo: Todo) => void;
   removeTodo: (id: string) => void;
   toggleTodo: (id: string) => void;
   setTodos: (todos: Todo[]) => void;
+  updateTodoInStore: (todo: Todo) => void;
 }
 
-// Создание хранилища с типизацией
 const useTodoStore = create<TodoState>((set) => ({
   todos: [],
   addTodo: (todo) => set((state) => ({ todos: [...state.todos, todo] })),
@@ -29,6 +27,18 @@ const useTodoStore = create<TodoState>((set) => ({
     ),
   })),
   setTodos: (todos) => set({ todos }),
+  updateTodoInStore: async (id: string, updatedTodo: Partial<Todo>) => {
+    try {
+      const updated = await updateTodo(id, updatedTodo);
+      set((state) => ({
+        todos: state.todos.map((todo) =>
+          todo._id === id ? { ...todo, ...updated } : todo
+        ),
+      }));
+    } catch (error) {
+      console.error('Error updating todo:', error);
+    }
+  },
 }));
 
 export default useTodoStore;

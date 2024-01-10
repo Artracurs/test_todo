@@ -1,0 +1,46 @@
+@use '../../variables.scss';
+
+.container {
+    min-height: 100vh;
+    max-width: 100vw;
+    box-sizing: border-box;
+    background-color: #000000d9;
+    position: absolute;
+    z-index: 110;
+    backdrop-filter: blur(5px); // Применение размытия
+}
+
+.header {
+    color: variables.$linen;
+}
+
+.modal {
+    margin: 0 auto;
+    padding: 100px;
+    box-sizing: border-box;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    // background-color: variables.$linen;
+}
+
+.el {
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 3px;
+    width: 350px;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px;
+    width: 350px;
+    gap: 15px;
+}
