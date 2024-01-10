@@ -45,7 +45,7 @@ export default function InProgress({}: Props) {
                         <div className={s.remove_edit}>
                             <RemoveButton id={item._id} />
                         </div>
-                        {isDescriptionVisible && (
+                        {!isDescriptionVisible && (
                             <div className={s.description}>{item.description}</div>
                         )}
                     </div>

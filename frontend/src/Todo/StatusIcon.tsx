@@ -16,16 +16,16 @@ import RotateRightOutlinedIcon from '@mui/icons-material/RotateRightOutlined';
 
 type Props = {
   status: string;
+  id: string,
   onClick?: () => void;
 }
 
-export default function StatusIcon({status, onClick}: Props) {
+export default function StatusIcon({ status, id, onClick }: Props) {
   return (
-    <div className={s.container} >
-      {/* {status === 'completed' ? <CheckCircleIcon onClick={onClick} className={s.el} />  : <></> } */}
-      {status === 'completed' && <RadioButtonCheckedOutlinedIcon />}
-      {status === 'in progress' && <RotateRightOutlinedIcon onClick={onClick} className={s.el} />}
-      {status === 'pending' && <RadioButtonUncheckedOutlinedIcon  />}
-    </div>
-  )
+      <div className={s.container}>
+          {status === 'completed' && <RadioButtonCheckedOutlinedIcon />}
+          {status === 'in progress' && <RotateRightOutlinedIcon onClick={() => onClick(id, 'completed')} className={s.el} />}
+          {status === 'pending' && <RadioButtonUncheckedOutlinedIcon onClick={() => onClick(id, 'in progress')} className={s.el} />}
+      </div>
+  );
 }
