@@ -9,6 +9,10 @@
     color: variables.$tangerine;
     // padding: 5px 10px;
     background-color: variables.$tangerine;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    
   }
 
   .navLinks {
@@ -17,11 +21,14 @@
     margin: 0 10px 0 0;
     color: variables.$holo;
     // background: variables.$tangerine;
+    display: flex;
+    justify-content: space-between;
   }
 
   
   .navbarBrand {
     display: flex;
+    
     align-items: center;
   }
   
@@ -34,7 +41,8 @@
   }
   
   .navLinks li {
-    margin-left: 15px;
+
+    margin-left: 10px;
   }
   
   .navLinks a {

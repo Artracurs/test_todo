@@ -21,7 +21,7 @@ const darkTheme = createTheme({
     },
     text: {
       primary: '#fff',
-      secondary: '#fff',
+      secondary: '#555',
     },
   },
 });
@@ -35,6 +35,12 @@ const CreateTaskModal: React.FC<Props> = ({ onClose }) => {
   const [description, setDescription] = useState<string>('');
   const addTodo = useTodoStore((state) => state.addTodo);
   const [useDarkTheme, setUseDarkTheme] = useState(true);
+
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.ctrlKey && event.key === 'Enter') {
+      handleCreate();
+    }
+  };
 
   const handleCreate = async () => {
     try {
@@ -59,6 +65,7 @@ const CreateTaskModal: React.FC<Props> = ({ onClose }) => {
           <TextField
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            onKeyDown={handleKeyDown}
             maxRows={2}
             multiline
             className={s.el}
@@ -77,8 +84,10 @@ const CreateTaskModal: React.FC<Props> = ({ onClose }) => {
             id="description-input"
             label="Description"
             variant="standard"
+            style={{ margin: '10px 0 0 0' }}
           />
         </div>
+      <p style={{ color: 'gray', fontSize: '0.8em' }}>Use Ctrl+Enter for creating Task</p>
         <div className={s.button}>
           <Button onClick={onClose} className={s.el} variant="outlined" color="error">
             Cancel

@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import s from './App.module.scss'
-import Completed from './Todo/Completed'
+import Completed from './Todo/Completed/Completed'
 import List from './Todo/List'
 import CreateTaskModal from './Todo/Modals/CreateTaskModal';
 import Nav from './Todo/Nav/Nav'
 import {  Routes, Route, Link } from 'react-router-dom';
 import CreateTaskButton from './Todo/Func_Icons/CreateTaskButton';
 import Pending from './Todo/Pending';
-import InProgress from './Todo/InProgress';
+import InProgress from './Todo/InProgress/InProgress';
 
 function App() {
   const [isCreateModalOpen, setCreateModalOpen] = useState(false);
@@ -29,7 +29,8 @@ function App() {
       {isCreateModalOpen && <CreateTaskModal onClose={handleCloseCreateModal}/>}
         <Routes>
 
-          <Route path="/tasks" element={<List onOpenCreateModal={handleOpenCreateModal}/>} />
+          <Route path="/tasks" element={
+          !isCreateModalOpen && <List onOpenCreateModal={handleOpenCreateModal}/>} />
           <Route path="/completed" element={<Completed />} />
           <Route path="/pending" element={<Pending />} />
           <Route path="/inprogress" element={<InProgress />} />

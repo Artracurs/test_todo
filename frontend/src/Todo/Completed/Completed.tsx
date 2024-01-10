@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import useTodoStore from '../store/store';
-import { Todo } from '../store/interfaces';
-import s from './List.module.scss';
-import StatusIcon from './StatusIcon';
-import RemoveButton from './Func_Icons/RemoveButton';
+import { useEffect, useState } from 'react';
+import useTodoStore from '../../store/store';
+import { Todo } from '../../store/interfaces';
+import s from './Completed.module.scss';
+import StatusIcon from '../StatusIcon';
+import RemoveButton from '../Func_Icons/RemoveButton';
 
 export default function Completed() {
     const { todos } = useTodoStore((state) => ({

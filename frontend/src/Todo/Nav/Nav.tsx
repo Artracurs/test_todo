@@ -13,7 +13,7 @@ const Nav = () => {
                 <li><Link to="/tasks">Tasks</Link></li>
                 <li><Link to="/completed">Completed</Link></li>
                 <li><Link to="/pending">Pending</Link></li>
-                <li><Link to="/inprogress">Progress</Link></li>
+                <li><Link to="/inprogress">InProgress</Link></li>
             </ul>
             <div></div>
         </nav>

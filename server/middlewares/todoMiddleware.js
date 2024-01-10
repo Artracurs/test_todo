@@ -38,6 +38,10 @@ async function createToDo(req, res) {
 }
 
 async function updateTodo(req, res) {
+    if (req.body.status === 'in progress') {
+        await ToDo.updateMany({ status: 'in progress' }, { status: 'pending' });
+    }
+
     if (req.body.title != null) {
         res.todo.title = req.body.title;
     }
@@ -55,6 +59,7 @@ async function updateTodo(req, res) {
         res.status(400).json({ message: error.message });
     }
 }
+
 
 async function deleteTodo(req, res) {
     try {

@@ -1,26 +1,26 @@
-@use '../variables.scss';
+@use '../../variables.scss';
 
 .main {
     // margin-top: 15px;
     z-index: 1;
     position: relative;
     // min-height: 100vh;
-    top: 50px;
 }
 
 .container {
     // width: 100vw;
+    display: flex;
     margin: 5px;
     padding: 10px;
     border-radius: 10px;
     text-align: left;
+    position: relative;
     background-color: variables.$cotton;
     color: variables.$holo;
     display: grid;
     grid-template-columns: 40px 1fr 30px 30px;
     box-sizing: border-box;
-    top: 30px;
-    position: relative;
+    top: 80px;
 
 }
 
@@ -40,8 +40,6 @@
     padding: 25px;
     display: flex;
     justify-content: center;
-    top: 20px;
-    position: relative;
 }
 
 .remove_edit {
