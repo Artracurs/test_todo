@@ -70,13 +70,11 @@ export default function List({ onOpenCreateModal }: Props) {
 
         return (
             item.status === 'completed' ? <></> : <div key={item._id} id={item._id} className={s.container}>
-
                 <StatusIcon status={item.status} />
                 <div onClick={() => toggleDescriptionVisibility(item._id)} className={s.title} style={item.status === 'completed' ? { textDecoration: 'line-through' } : {}}>
                     {item.title}
                 </div>
                 <div className={s.remove_edit}>
-                    {/* <SubjectOutlinedIcon /> */}
                     <DrawOutlinedIcon style={{ zIndex: '300' }} onClick={() => openUpdateModal(todo)} />
                     <RemoveButton id={item._id} />
                 </div>
@@ -98,7 +96,7 @@ export default function List({ onOpenCreateModal }: Props) {
                 />
             )}
             <div className={s.create_new}>
-                <CreateTaskButton onClick={onOpenCreateModal} />
+                {/* <CreateTaskButton onClick={onOpenCreateModal} /> */}
             </div>
             {list}
             <div className={s.create_new}>

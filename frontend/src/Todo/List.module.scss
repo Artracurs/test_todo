@@ -17,6 +17,10 @@
     grid-template-columns: 40px 1fr 30px 30px;
     box-sizing: border-box;
 }
+
+.container:hover {
+    background-color: variables.$cotton2;
+}
 .listBtn {
     cursor: pointer;
 }
@@ -54,7 +58,6 @@
     max-width: 80%;
     color: variables.$holo;
 }
-
 
 @media (min-width: 1200px) {
     .main {
