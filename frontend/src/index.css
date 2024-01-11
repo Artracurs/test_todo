@@ -11,6 +11,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #222222;
+  margin: auto;
 }
 
 a {
@@ -23,11 +24,12 @@ a:hover {
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
   display: flex;
+  min-width: 100vw;
   place-items: center;
-  /* min-width: 320px; */
-  /* min-height: 100vh; */
 }
 
 h1 {
@@ -40,14 +42,14 @@ h1 {
   color: white;
 
   .MuiInputBase-root {
-    color: white; /* Цвет текста */
+    color: white;
   }
 
   .MuiInputBase-input {
-    color: white; /* Цвет текста в поле ввода */
+    color: white;
   }
 
   .MuiInputLabel-root {
-    color: white; /* Цвет метки (label) */
+    color: white;
   }
 }

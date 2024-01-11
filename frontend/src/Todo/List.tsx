@@ -7,7 +7,7 @@ import StatusIcon from './StatusIcon';
 import DrawOutlinedIcon from '@mui/icons-material/DrawOutlined';
 import RemoveButton from './Func_Icons/RemoveButton';
 import CreateTaskButton from './Func_Icons/CreateTaskButton';
-import UpdateTaskModal from './UpdateTaskModal';
+import UpdateTaskModal from './Modals/UpdateTaskModal';
 
 type Props = {
   onOpenCreateModal: () => void;
@@ -18,6 +18,7 @@ export default function List({ onOpenCreateModal }: Props) {
     todos: state.todos,
     setTodos: state.setTodos
   }));
+  
 
   const [visibleDescriptions, setVisibleDescriptions] = useState<{ [key: string]: boolean }>({});
   const [currentTodo, setCurrentTodo] = useState<Todo | null>(null);
@@ -84,7 +85,7 @@ export default function List({ onOpenCreateModal }: Props) {
           <DrawOutlinedIcon style={{ zIndex: '300' }} onClick={() => setCurrentTodo(item)} />
           <RemoveButton id={item._id} />
         </div>
-        {isDescriptionVisible && (
+        {!isDescriptionVisible && (
           <div className={s.description} style={item.status === 'completed' ? { textDecoration: 'line-through' } : null}>
             {item.description}
           </div>

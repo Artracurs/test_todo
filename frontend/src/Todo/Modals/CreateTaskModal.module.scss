@@ -1,13 +1,16 @@
 @use '../../variables.scss';
 
 .container {
-    max-height: 100vh;
+    min-height: 100vh;
     max-width: 100vw;
     box-sizing: border-box;
-    position: fixed; 
+    justify-content: center;
+    position: absolute; 
     z-index: 110;
+    left: 5px;
     backdrop-filter: blur(5px); 
     overflow: hidden; 
+    background-color: variables.$holo;
 }
 
 .header {
@@ -22,10 +25,12 @@
     min-width: 100vw;
     display: flex;
     flex: 1;
+    justify-content: center;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    overflow: hidden; // Запрещаем прокрутку внутри модального окна
+box-sizing: border-box;
+    overflow: hidden; 
 }
 
 .el {
@@ -41,6 +46,6 @@
     align-items: center;
     justify-content: center;
     margin: 40px;
-    width: 350px;
+    max-width: 350px;
     gap: 15px;
 }

@@ -5,10 +5,11 @@
     z-index: 1;
     position: relative;
     // min-height: 100vh;
+    box-sizing: border-box;
 }
 
 .container {
-    // width: 100vw;
+    width: 100vw;
     display: flex;
     margin: 5px;
     padding: 10px;
@@ -21,7 +22,6 @@
     grid-template-columns: 40px 1fr 30px 30px;
     box-sizing: border-box;
     top: 80px;
-
 }
 
 .container:hover {
@@ -50,7 +50,6 @@
         margin: 0 5px 0 0;
     }
 }
-
 
 .title {
     font-weight: 800;

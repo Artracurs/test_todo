@@ -45,6 +45,8 @@
 .remove_edit {
     cursor: pointer;
     z-index: 100;
+    position: relative;
+    right: -30px;
     display: flex;
     * {
         margin: 0 5px 0 0;

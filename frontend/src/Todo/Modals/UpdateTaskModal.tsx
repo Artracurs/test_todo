@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import s from './CreateTaskModal.module.scss';
+import React, { useState, useEffect } from 'react';
+import s from './CreateTaskModal.module.scss'; 
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import useTodoStore from '../../store/store';
+import { Todo } from '../../store/interfaces';
+import { ThemeProvider, createTheme } from '@mui/material';
 import { createTodo } from '../../store/api';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const lightTheme = createTheme({
   palette: {
@@ -27,12 +28,14 @@ const darkTheme = createTheme({
 });
 
 type Props = {
+  todo: Todo;
   onClose: () => void;
 };
 
-const CreateTaskModal: React.FC<Props> = ({ onClose }) => {
-  const [title, setTitle] = useState<string>('');
-  const [description, setDescription] = useState<string>('');
+const UpdateTaskModal: React.FC<Props> = ({ todo, onClose }) => {
+  const [title, setTitle] = useState<string>(todo.title);
+  const [description, setDescription] = useState<string>(todo.description || '');
+  const updateTodoInStore = useTodoStore((state) => state.updateTodoInStore);
   const addTodo = useTodoStore((state) => state.addTodo);
   const [useDarkTheme, setUseDarkTheme] = useState(true);
 
@@ -54,11 +57,25 @@ const CreateTaskModal: React.FC<Props> = ({ onClose }) => {
     }
   };
 
+  useEffect(() => {
+    setTitle(todo.title);
+    setDescription(todo.description || '');
+  }, [todo]);
+
+  const handleUpdate = async () => {
+    try {
+      await updateTodoInStore(todo._id, { title, description });
+      onClose(); 
+    } catch (error) {
+      console.error('Error while updating todo:', error);
+    }
+  };
+
   return (
     <ThemeProvider theme={useDarkTheme ? darkTheme : lightTheme}>
       <div className={s.container}>
         <div className={s.modal}>
-          <h2 className={s.header}>CREATE TASK</h2>
+          <h2 className={s.header}>UPDATE TASK</h2>
           <div>
             <TextField
               value={title}
@@ -67,7 +84,6 @@ const CreateTaskModal: React.FC<Props> = ({ onClose }) => {
               maxRows={2}
               multiline
               className={s.el}
-              // id="title-input"
               label="Title"
               variant="standard"
             />
@@ -80,7 +96,6 @@ const CreateTaskModal: React.FC<Props> = ({ onClose }) => {
               maxRows={10}
               multiline
               className={s.el}
-              // id="description-input"
               label="Description"
               variant="standard"
               style={{ margin: '10px 0 0 0' }}
@@ -91,8 +106,8 @@ const CreateTaskModal: React.FC<Props> = ({ onClose }) => {
             <Button onClick={onClose} className={s.el} variant="outlined" color="error">
               Cancel
             </Button>
-            <Button onClick={handleCreate} className={s.el} variant="contained">
-              Create
+            <Button onClick={handleUpdate} className={s.el} variant="contained">
+              Update
             </Button>
           </div>
         </div>
@@ -101,4 +116,4 @@ const CreateTaskModal: React.FC<Props> = ({ onClose }) => {
   );
 };
 
-export default CreateTaskModal;
+export default UpdateTaskModal;
