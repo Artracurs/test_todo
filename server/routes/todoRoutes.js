@@ -1,6 +1,6 @@
-const express = require('express');
-const toDo = require('../models/ToDo')
-const { getTodo, createToDo, getAllTodos, updateTodo, deleteTodo } = require('../middlewares/todoMiddleware');
+import express from 'express';
+// import toDo from '../models/ToDo.';
+import { getTodo, createToDo, getAllTodos, updateTodo, deleteTodo } from '../middlewares/todoMiddleware.js';
 
 const router = express.Router();
 
@@ -21,4 +21,4 @@ router.patch('/todos/:id', getTodo, updateTodo);
 // DELETE TODO BY ID
 router.delete('/todos/:id', getTodo, deleteTodo);
 
-module.exports = router;
+export default router;

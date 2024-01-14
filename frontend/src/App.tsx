@@ -47,7 +47,6 @@ function App() {
 
         {/* {isEditModalOpen && currentTaskToEdit && <EditTaskModal todo={currentTaskToEdit} onClose={handleCloseEditModal} />} */}
 
-  
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tasks" element={<List onOpenCreateModal={handleOpenCreateModal} onOpenEditModal={handleOpenEditModal} />} />

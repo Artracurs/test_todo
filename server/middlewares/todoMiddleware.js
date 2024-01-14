@@ -1,6 +1,6 @@
-const ToDo = require('../models/ToDo')
+import ToDo from '../models/ToDo.js';
 
-async function getAllTodos(req, res) {
+export async function getAllTodos(req, res) {
 try {
     let allTodos = await ToDo.find();
     res.json(allTodos)
@@ -9,7 +9,7 @@ try {
 }
 }
 
-async function getTodo(req, res, next) {
+export async function getTodo(req, res, next) {
     try {
         let todo = await ToDo.findById(req.params.id);
         if (todo === null) {
@@ -22,7 +22,7 @@ async function getTodo(req, res, next) {
     }
 }
 
-async function createToDo(req, res) {
+export async function createToDo(req, res) {
     const todo = new ToDo({
         title: req.body.title,
         description: req.body.description,
@@ -37,7 +37,7 @@ async function createToDo(req, res) {
     }
 }
 
-async function updateTodo(req, res) {
+export async function updateTodo(req, res) {
     if (req.body.status === 'in progress') {
         await ToDo.updateMany({ status: 'in progress' }, { status: 'pending' });
     }
@@ -61,7 +61,7 @@ async function updateTodo(req, res) {
 }
 
 
-async function deleteTodo(req, res) {
+export async function deleteTodo(req, res) {
     try {
         await ToDo.findByIdAndDelete(req.params.id);
         res.json({ message: 'Deleted Todo' });
@@ -70,5 +70,3 @@ async function deleteTodo(req, res) {
     }
 }
 
-
-module.exports = { getAllTodos, getTodo, createToDo, updateTodo, deleteTodo };

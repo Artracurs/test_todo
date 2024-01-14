@@ -16,5 +16,6 @@
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0",
     "yamljs": "^0.3.0"
-  }
+  },
+  "type": "module"
 }

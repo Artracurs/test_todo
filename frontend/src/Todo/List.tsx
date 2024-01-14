@@ -96,12 +96,14 @@ export default function List({ onOpenCreateModal }: Props) {
 
   return (
     <div className={s.main}>
+      
       {currentTodo && (
         <UpdateTaskModal
-          todo={currentTodo}
-          onClose={() => setCurrentTodo(null)}
+        todo={currentTodo}
+        onClose={() => setCurrentTodo(null)}
         />
-      )}
+        )}
+
       {list}
       <div className={s.create_new}>
         <CreateTaskButton onClick={onOpenCreateModal} />
